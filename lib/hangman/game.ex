@@ -1,5 +1,4 @@
 defmodule Hangman.Game do
-
   defstruct(
     turns_left: 7,
     game_state: :initializing,
@@ -27,7 +26,8 @@ defmodule Hangman.Game do
     %{
       game_state: game.game_state,
       turns_left: game.turns_left,
-      letters: game.letters |> reveal_guesses(game.used)
+      letters: game.letters |> reveal_guesses(game.used),
+      letters_used: game.used
     }
   end
 
@@ -69,5 +69,4 @@ defmodule Hangman.Game do
 
   defp maybe_won(true), do: :won
   defp maybe_won(_), do: :good_guess
-
 end
